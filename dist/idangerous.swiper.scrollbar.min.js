@@ -1,5 +1,5 @@
 /*
- * swiper 2.4.3
+ * swiper 2.4.3.1
  * Mobile touch slider and framework with hardware accelerated transitions
  *
  * http://www.idangero.us/sliders/swiper/

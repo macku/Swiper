@@ -1,5 +1,5 @@
 /*
- * swiper 2.4.3
+ * swiper 2.4.3.1
  * Mobile touch slider and framework with hardware accelerated transitions
  *
  * http://www.idangero.us/sliders/swiper/
@@ -379,6 +379,7 @@ var Swiper = function (selector, params) {
     _this.calcSlides = function (forceCalcSlides) {
         var oldNumber = _this.slides ? _this.slides.length : false;
         _this.slides = [];
+		_this.slidesSizes = [];
         _this.displaySlides = [];
         for (var i = 0; i < _this.wrapper.childNodes.length; i++) {
             if (_this.wrapper.childNodes[i].className) {
@@ -2141,7 +2142,7 @@ var Swiper = function (selector, params) {
             _slideLeft += _slideSize;
             if (params.slidesPerView === 'auto') {
                 if (_this.slidesSizes[i]) {
-                   _slideSize  = isH ? _this.h.getWidth(_this.slides[i], true) : _this.h.getHeight(_this.slides[i], true);
+					slideSize  = isH ? _this.slidesSizes[i].width : _this.slidesSizes[i].height;
                 }
                 else {
                     slideSize  = isH ? _this.slides[i].getWidth(true) : _this.slides[i].getHeigt(true);
