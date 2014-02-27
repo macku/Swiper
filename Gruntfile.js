@@ -37,12 +37,16 @@ module.exports = function (grunt) {
                 stripBanners: true
             },
             js: {
-                src: ['lib/<%= swiper.filename %>.js'],
-                dest: 'dist/<%= swiper.filename %>.js'
+				expand: true,
+				cwd:  'lib',
+                src: ['*.js'],
+                dest: 'dist'
             },
             css: {
-                src: ['lib/<%= swiper.filename %>.css'],
-                dest: 'dist/<%= swiper.filename %>.css'
+                expand: true,
+				cwd:  'lib',
+                src: ['*.css'],
+                dest: 'dist'
             }
         },
         uglify: {
@@ -50,8 +54,13 @@ module.exports = function (grunt) {
                 banner: '<%= banner %>'
             },
             dist: {
-                src: ['dist/<%= swiper.filename %>.js'],
-                dest: 'dist/<%= swiper.filename %>.min.js',
+				files: [{
+					src: ['dist/<%= swiper.filename %>.js'],
+					dest: 'dist/<%= swiper.filename %>.min.js',
+				}, {
+					src: ['dist/<%= swiper.filename %>.scrollbar.js'],
+					dest: 'dist/<%= swiper.filename %>.scrollbar.min.js',
+				}]
             }
         },
         jshint: {
