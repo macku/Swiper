@@ -1,11 +1,11 @@
 {
   "name": "Swiper",
-  "version": "2.4.3",
+  "version": "2.4.3+",
   "description": "Mobile touch slider and framework with hardware accelerated transitions",
   "main": "dist/idangerous.swiper.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nolimits4web/Swiper.git"
+    "url": "https://github.com/macku/Swiper.git"
   },
   "keywords": [
     "mobile",
