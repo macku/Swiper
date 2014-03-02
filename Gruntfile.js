@@ -14,8 +14,10 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         swiper: swiper,
+
         // Metadata.
         pkg: grunt.file.readJSON('bower.json'),
+
         banner: '/*\n' +
           ' * <%= pkg.name %> <%= pkg.version %>\n' +
           ' * <%= pkg.description %>\n' +
@@ -30,6 +32,7 @@ module.exports = function (grunt) {
           ' *\n' +
           ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
           '*/\n',
+
         // Task configuration.
         concat: {
             options: {
@@ -49,20 +52,27 @@ module.exports = function (grunt) {
                 dest: 'dist'
             }
         },
+
         uglify: {
             options: {
-                banner: '<%= banner %>'
+                banner: '<%= banner %>',
+				sourceMap: true,
+				sourceMapName: function(path) {
+					return path.replace(/\.js$/i, '.js.map');
+				}
             },
+
             dist: {
 				files: [{
 					src: ['dist/<%= swiper.filename %>.js'],
-					dest: 'dist/<%= swiper.filename %>.min.js',
+					dest: 'dist/<%= swiper.filename %>.min.js'
 				}, {
 					src: ['dist/<%= swiper.filename %>.scrollbar.js'],
-					dest: 'dist/<%= swiper.filename %>.scrollbar.min.js',
+					dest: 'dist/<%= swiper.filename %>.scrollbar.min.js'
 				}]
             }
         },
+
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
@@ -73,8 +83,9 @@ module.exports = function (grunt) {
             },
             lib: {
                 src: ['lib/*.js']
-            },
+            }
         },
+
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',

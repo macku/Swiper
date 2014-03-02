@@ -1,5 +1,5 @@
 /*
- * swiper 2.4.3.1
+ * swiper 2.4.3.2
  * Mobile touch slider and framework with hardware accelerated transitions
  *
  * http://www.idangero.us/sliders/swiper/
@@ -10,7 +10,7 @@
  *
  * Licensed under GPL & MIT
  *
- * Released on: February 27, 2014
+ * Released on: March 2, 2014
 */
 (function(window) {
 	var document  = window.document,
@@ -1133,6 +1133,16 @@ var Swiper = function (selector, params) {
             if (kc === 38) _this.swipePrev();
         }
     }
+
+    _this.disableKeyboardControl = function () {
+        params.keyboardControl = false;
+        _this.h.removeEventListener(document, 'keydown', handleKeyboardKeys);
+    };
+
+    _this.enableKeyboardControl = function () {
+        params.keyboardControl = true;
+        _this.h.addEventListener(document, 'keydown', handleKeyboardKeys);
+    };
 
     /*==========================================
         Mousewheel Control
